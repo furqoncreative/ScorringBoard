@@ -7,26 +7,45 @@
         <item name="colorPrimaryDark">@color/hijauTua</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="orange" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/merah</item>
         <item name="colorButtonNormal">@color/orange</item>
         <item name="android:textColor">#fff</item>
     </style>
+
     <style name="biru" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/biruTua</item>
         <item name="colorButtonNormal">@color/biru</item>
         <item name="android:textColor">#fff</item>
     </style>
+
     <style name="hijau" parent="Theme.AppCompat.Light">
         <item name="colorControlHighlight">@color/hijauTua</item>
         <item name="colorButtonNormal">@color/hijau</item>
         <item name="android:textColor">#fff</item>
     </style>
+
     <style name="NoTitle" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="tanding_title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

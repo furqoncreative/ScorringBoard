@@ -21,8 +21,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/NoTitle"></activity>
-        <activity android:name=".ListPertandingan"></activity>
+            android:theme="@style/NoTitle" />
+        <activity android:name=".ListPertandingan" />
+        <activity android:name=".WordListAdapter" />
+        <activity
+            android:name=".NavigationBar"
+            android:label="@string/title_activity_navigation_bar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
