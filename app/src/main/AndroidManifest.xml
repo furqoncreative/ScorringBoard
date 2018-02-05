@@ -20,14 +20,15 @@
         <activity android:name=".PersijaDetails" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/NoTitle" />
+            android:exported="true"/>
         <activity android:name=".ListPertandingan" />
-        <activity android:name=".WordListAdapter" />
         <activity
             android:name=".NavigationBar"
             android:label="@string/title_activity_navigation_bar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".AboutActivity"
+            android:label="About"></activity>
     </application>
 
 </manifest>

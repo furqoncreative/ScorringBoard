@@ -6,45 +6,56 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import java.util.LinkedList;
 
-public class WordListAdapter extends
-        RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
-    private final LinkedList<String> mWordListHome;
-    private final LinkedList<String> mWordListAway;
+/**
+ * Created by aldyrialdy on 31/01/18.
+ */
 
+public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
+//    private final LinkedList<String> mWordListHome;
+//    private final LinkedList<String> mWordListAway;
+
+    Context mContext;
+    TeamListOpenHelper mDB;
     private LayoutInflater mInflater;
 
-    public WordListAdapter(Context context, LinkedList<String> wordList1, LinkedList<String> wordList2) {
+    public WordListAdapter(Context context, TeamListOpenHelper db) {
         mInflater = LayoutInflater.from(context);
-        this.mWordListHome = wordList1;
-        this.mWordListAway = wordList2;
+        mContext = context;
+        mDB = db;
+//        this.mWordListHome = wordList1;
+//        this.mWordListAway = wordList2;
     }
 
     @Override
-    public WordListAdapter.WordViewHolder onCreateViewHolder(ViewGroup
-                                                                     parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.item_team, parent,
-                false);
+    public WordListAdapter.WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View mItemView = mInflater.inflate(R.layout.item_team, parent, false);
         return new WordViewHolder(mItemView, this);
     }
 
     @Override
     public void onBindViewHolder(WordViewHolder holder, int position) {
-        String mCurrent1 = mWordListHome.get(position);
-        String mCurrent2 = mWordListAway.get(position);
-        holder.wordItemView1.setText(mCurrent1);
-        holder.wordItemView2.setText(mCurrent2);
+        ItemTeam current = mDB.query(position);
+        holder.wordItemView1.setText(current.getTeamHome());
+        holder.wordItemView2.setText(current.getTeamAway());
+
+//        String mCurrent1 = mWordListHome.get(position);
+//        String mCurrent2 = mWordListAway.get(position);
+//        holder.wordItemView1.setText(mCurrent1);
+//        holder.wordItemView2.setText(mCurrent2);
     }
 
     @Override
-    public int getItemCount() {return mWordListHome.size();}
+    public int getItemCount() {
+        return (int) mDB.count();
+    }
 
-
-    public class WordViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener {
+    public class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView wordItemView1;
         public final TextView wordItemView2;
+
         final WordListAdapter mAdapter;
 
         public WordViewHolder(View itemView, WordListAdapter adapter) {
@@ -56,19 +67,19 @@ public class WordListAdapter extends
         }
 
         @Override
-        public void onClick(View view) {
-// Get the position of the item that was clicked.
-            int mPosition1 = getLayoutPosition();
-            int mPosition2 = getLayoutPosition();
-// Use that to access the affected item in mWordList.
-            String element1 = mWordListHome.get(mPosition1);
-            String element2 = mWordListAway.get(mPosition2);
-// Change the word in the mWordList.
-            mWordListHome.set(mPosition1,  element1 + " Selesai!");
-            mWordListAway.set(mPosition2,  element2 + "Selesai! ");
-// Notify the adapter, that the data has changes so it can
-// update the RecyclerView to display the data.
-            mAdapter.notifyDataSetChanged();
+       public void onClick(View view) {
+//// Get the position of the item that was clicked.
+//            int mPosition1 = getLayoutPosition();
+//            int mPosition2 = getLayoutPosition();
+//// Use that to access the affected item in mWordList.
+//            String element1 = mWordListHome.get(mPosition1);
+//            String element2 = mWordListAway.get(mPosition2);
+//// Change the word in the mWordList.
+//            mWordListHome.set(mPosition1,  element1 + " Selesai!");
+//            mWordListAway.set(mPosition2,  element2 + "Selesai! ");
+//// Notify the adapter, that the data has changes so it can
+//// update the RecyclerView to display the data.
+//            mAdapter.notifyDataSetChanged();
         }
     }
 }
